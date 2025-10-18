@@ -1,9 +1,132 @@
 ---
-
+import "../styles/global.css";
 ---
+<div class="min-h-screen flex items-center justify-center bg-simple text-gray-900 dark:bg-[#201515] dark:text-[#FFFDF9]">
+  <main class="w-full max-w-lg px-6 py-12 text-center">
+    <h1 class="text-2xl font-semibold mb-1 dark:text-[#FFFDF9]">Dilan Grijalva</h1>
+    <p class="text-sm text-gray-600 mb-6 dark:text-[#FFFDF9]">Software Developer</p>
 
-<div id="container">
-  <div>Hi there! This is still under construction. 🏗</div>
+    <p class="text-sm text-gray-700 leading-relaxed dark:text-[#FFFDF9]">
+      I build simple, reliable web apps with JavaScript and TypeScript — primarily React and Node.js.
+    </p>
+
+    <p class="text-xs text-gray-500 mt-6 dark:text-[#FFFDF9]">Site in progress.</p>
+  </main>
+
+  <!-- custom cursor elements -->
+  <div id="cursor" aria-hidden="true">
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <style>
+  :root{
+    --accent: #FF4F00;
+    --bg-dark: #201515;
+    --text-contrast: #FFFDF9;
+  }
+
+  /* text selection highlight */
+  ::selection { background-color: var(--accent); color: #fff; }
+  ::-moz-selection { background-color: var(--accent); color: #fff; }
+
+  /* simple page background (no moving or radial effects) */
+  .bg-simple { background-color: var(--bg-dark); }
+
+  /* Custom cursor: hide native cursor */
+  html, body { cursor: none; }
+
+  #cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .cursor-outline {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 200ms;
+    opacity: 0.95;
+  }
+
+  .cursor-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 6px 12px rgba(255,79,0,0.16);
+    transition: transform 140ms cubic-bezier(.2,.9,.3,1), background 120ms;
+  }
+
+  /* hover state when over interactive elements */
+  .cursor--hover .cursor-outline { transform: translate(-50%, -50%) scale(1.35); opacity: 1; border-color: rgba(255,79,0,0.18); }
+  .cursor--hover .cursor-dot { transform: translate(-50%, -50%) scale(1.25); background: #fff; box-shadow: 0 10px 20px rgba(255,79,0,0.18); }
+
+  /* hide custom cursor on small touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    html, body { cursor: auto; }
+    #cursor { display: none; }
+  }
+  </style>
+
+  <script type="module">
+  (function () {
+    const cursor = document.getElementById('cursor');
+    if (!cursor) return;
+    const outline = cursor.querySelector('.cursor-outline');
+    const dot = cursor.querySelector('.cursor-dot');
+
+    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+    let posX = mouseX, posY = mouseY;
+    const lerp = (a,b,n) => (1-n)*a + n*b;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursor.style.display = 'block';
+    });
+
+    const interactiveSelector = 'a, button, input, textarea, [role="button"]';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(interactiveSelector)) cursor.classList.add('cursor--hover');
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (!e.relatedTarget || !e.relatedTarget.closest(interactiveSelector)) cursor.classList.remove('cursor--hover');
+    });
+
+    // hide when idle
+    let lastMove = Date.now();
+    document.addEventListener('mousemove', () => lastMove = Date.now());
+    setInterval(() => {
+      cursor.style.opacity = (Date.now() - lastMove > 1800) ? '0' : '1';
+    }, 600);
+
+    function animate() {
+      posX = lerp(posX, mouseX, 0.16);
+      posY = lerp(posY, mouseY, 0.16);
+      outline.style.transform = `translate(${posX - 20}px, ${posY - 20}px)`;
+      dot.style.transform = `translate(${posX - 4}px, ${posY - 4}px)`;
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    // accessibility: restore native cursor when tabbing
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') document.documentElement.style.cursor = 'auto';
+    });
+  })();
+  </script>
 </div>
-
-<style></style>
