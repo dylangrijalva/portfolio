@@ -1,46 +1,11 @@
-# Astro Starter Kit: Basics
+# About Me 👋
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Hi, my name is Dilan. I'm a software developer experienced in building reliable, testable, and scalable applications who enjoys exploring new technologies and continuously improving my craft; I focus on pragmatic problem-solving, clean and maintainable code, and attention to performance and user experience, and I'm passionate about delivering high-quality software and collaborating across teams to solve challenging problems. 
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+My skills and technologies include full‑stack development with JavaScript, TypeScript, React, Node.js, Tailwind, Shadcn UI, Hono, and .NET 8; databases such as PostgreSQL, MySQL, Redis, RabbitMQ, and MongoDB; DevOps and cloud tools like Docker, GitHub Actions, and AWS; and mobile development with Jetpack Compose and also a little bit of React Native.
 
-## 🚀 Project Structure
+# Let's Connect! 🤝
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Reach me out via [Email](mailto:dilan.grijalva@outlook.com)
+- Check my portfolio at [dagn.dev](https://dagn.dev)
+- Open to collaborating with React, Node.js, TypeScript, Kotlin, and more.
