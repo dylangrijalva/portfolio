@@ -10,24 +10,24 @@
       </div>
       <div class="profile-bio-container">
         <p>
-          Hi — I'm Dilan, a Software Engineer based in Managua, Nicaragua,
-          specializing in mobile and backend development. My expertise spans
-          technologies like Jetpack Compose, React Native, Flutter, Node.js, and
-          TypeScript.
+          Hi — I'm Dilan, a Software Developer based in Managua, Nicaragua. I'm
+          passionate about building software that resolves real-world problems
+          and enhances user experiences.
         </p>
-        <p>
-          My background combines a passion for robust architecture with a focus
-          on building performant, user-friendly applications. I enjoy solving
-          complex technical challenges and delivering solutions that balance
-          functionality and thoughtful design.
-        </p>
+        My current focus is on mobile app and backend development, using technologies
+        such as TypeScript, Node.js, MySQL, Java, Kotlin, and React Native.
+        <p></p>
       </div>
     </section>
     <section class="employment-container">
       <p>
-        I'm currently working as a freelance Software Engineer, collaborating
-        with clients to bring their app ideas to life.
+        I have interest in building AI-powered applications and exploring new
+        technologies to stay at the forefront of the industry.
       </p>
+    </section>
+    <section class="projects-container">
+      <h2>Latest projects</h2>
+      <p>Working on some personal projects. Check back later for updates!</p>
     </section>
   </main>
 </div>
@@ -45,6 +45,11 @@
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
     box-sizing: border-box;
+  }
+
+  ::selection {
+    background: var(--primary-color);
+    color: var(--foreground-color);
   }
 
   body::before,
@@ -76,6 +81,7 @@
     justify-content: center;
     font-size: medium;
     line-height: 1.5;
+    padding: 1em;
   }
 
   .profile-container {
@@ -86,7 +92,6 @@
     border: solid 1px var(--border-color);
     border-radius: 8px;
     max-width: 600px;
-    margin-top: 4em;
     padding: 1em;
     overflow: hidden;
     position: relative;
@@ -100,6 +105,7 @@
   .profile-bio-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 12px;
   }
 
@@ -143,6 +149,38 @@
     justify-content: flex-start;
   }
 
+  .projects-container {
+    margin-top: 2em;
+    background: var(--surface-color);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    padding: 1em;
+  }
+
+  .projects-container h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.2em;
+  }
+
+  .projects-container ul {
+    padding-left: 1.2em;
+    margin: 0;
+  }
+
+  .projects-container li {
+    margin-bottom: 0.7em;
+  }
+
+  .project-title {
+    transition: border-bottom 0.2s;
+  }
+
+  .project-title:hover {
+    border-bottom: 2px dashed var(--primary-color);
+    cursor: pointer;
+  }
+
   /* Responsive styles */
   @media (max-width: 600px) {
     .container {
@@ -169,6 +207,9 @@
     .employment-container {
       justify-content: center;
       text-align: center;
+    }
+    .projects-container {
+      padding: 0.5em;
     }
   }
 </style>
