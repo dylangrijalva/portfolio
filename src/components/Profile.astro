@@ -1,0 +1,125 @@
+---
+
+---
+
+<div class="container">
+  <main class="profile-container">
+    <section class="profile-headline-container">
+      <div class="profile-picture-container">
+        <img
+          src="/src/assets/images/dilan-grijalva.jpeg"
+          alt="Dilan Grijalve selfie"
+        />
+      </div>
+      <div class="profile-bio-container">
+        <p>
+          Hi — I'm Dilan, a software developer based in Managua, Nicaragua. I
+          enjoy building scalable, performant, and user-friendly applications.
+        </p>
+        <p>
+          I'm specialize in mobile and backend development, with experience in
+          technologies like Jetpack Compose, Node.js, TypeScript, React Native,
+          and Flutter.
+        </p>
+      </div>
+    </section>
+    <section class="employment-container">
+      <p>This site is under construction.</p>
+    </section>
+  </main>
+</div>
+
+<style>
+  :root {
+    --primary-color: #ff4f00;
+    --background-color: #000000;
+    --foreground-color: #fffdf9;
+    --surface-color: #0a0a0a;
+    --border-color: #1f1f1f;
+
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    box-sizing: border-box;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    font-size: medium;
+    line-height: 1.5;
+  }
+
+  .profile-container {
+    position: relative; /* needed so ::before is positioned inside */
+    z-index: 0; /* base layer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--surface-color);
+    border: solid 1px var(--border-color);
+    border-radius: 8px;
+    max-width: 600px;
+    margin-top: 4em;
+    padding: 1em;
+    overflow: hidden;
+  }
+
+  .profile-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+    /* Grid lines */ repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.06) 0px,
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 1px,
+        transparent 40px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.06) 0px,
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 1px,
+        transparent 40px
+      ),
+      radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 50%);
+    background-blend-mode: screen;
+    z-index: -1;
+  }
+
+  .profile-headline-container {
+    display: flex;
+    gap: 24px;
+  }
+
+  .profile-bio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .profile-bio-container p {
+    margin: 0px;
+  }
+
+  .profile-picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-picture-container img {
+    border-radius: 12px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .employment-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+</style>
