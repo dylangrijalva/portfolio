@@ -10,18 +10,24 @@
       </div>
       <div class="profile-bio-container">
         <p>
-          Hi — I'm Dilan, a software developer based in Managua, Nicaragua. I
-          enjoy building scalable, performant, and user-friendly applications.
+          Hi — I'm Dilan, a Software Engineer based in Managua, Nicaragua,
+          specializing in mobile and backend development. My expertise spans
+          technologies like Jetpack Compose, React Native, Flutter, Node.js, and
+          TypeScript.
         </p>
         <p>
-          I'm specialize in mobile and backend development, with experience in
-          technologies like Jetpack Compose, Node.js, TypeScript, React Native,
-          and Flutter.
+          My background combines a passion for robust architecture with a focus
+          on building performant, user-friendly applications. I enjoy solving
+          complex technical challenges and delivering solutions that balance
+          functionality and thoughtful design.
         </p>
       </div>
     </section>
     <section class="employment-container">
-      <p>This site is under construction.</p>
+      <p>
+        I'm currently working as a freelance Software Engineer, collaborating
+        with clients to bring their app ideas to life.
+      </p>
     </section>
   </main>
 </div>
@@ -41,34 +47,14 @@
     box-sizing: border-box;
   }
 
-  .container {
-    display: flex;
-    justify-content: center;
-    font-size: medium;
-    line-height: 1.5;
-  }
-
-  .profile-container {
-    position: relative; /* needed so ::before is positioned inside */
-    z-index: 0; /* base layer */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--surface-color);
-    border: solid 1px var(--border-color);
-    border-radius: 8px;
-    max-width: 600px;
-    margin-top: 4em;
-    padding: 1em;
-    overflow: hidden;
-  }
-
-  .profile-container::before {
+  body::before,
+  :global(body)::before {
     content: "";
-    position: absolute;
+    position: fixed;
     inset: 0;
-    background:
-    /* Grid lines */ repeating-linear-gradient(
+    z-index: -2;
+    pointer-events: none;
+    background: repeating-linear-gradient(
         to right,
         rgba(255, 255, 255, 0.06) 0px,
         rgba(255, 255, 255, 0.06) 1px,
@@ -81,10 +67,29 @@
         rgba(255, 255, 255, 0.06) 1px,
         transparent 1px,
         transparent 40px
-      ),
-      radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 50%);
+      );
     background-blend-mode: screen;
-    z-index: -1;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    font-size: medium;
+    line-height: 1.5;
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--surface-color);
+    border: solid 1px var(--border-color);
+    border-radius: 8px;
+    max-width: 600px;
+    margin-top: 4em;
+    padding: 1em;
+    overflow: hidden;
+    position: relative;
   }
 
   .profile-headline-container {
@@ -113,10 +118,57 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transition:
+      width 0.2s,
+      height 0.2s,
+      box-shadow 0.3s,
+      filter 0.3s,
+      transform 0.3s;
+
+    border: 2px dashed var(--border-color);
+    transform: rotate(0deg) scale(1.01);
+  }
+
+  .profile-picture-container img:hover {
+    transform: rotate(0deg) scale(1.04);
+    cursor: pointer;
+    border-color: var(--primary-color);
   }
 
   .employment-container {
     display: flex;
     justify-content: flex-start;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 0.5em;
+    }
+    .profile-container {
+      margin-top: 2em;
+      padding: 0.5em;
+    }
+    .profile-headline-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+    .profile-bio-container {
+      align-items: center;
+      text-align: center;
+    }
+    .profile-picture-container img {
+      width: 240px;
+      height: 240px;
+    }
+    .employment-container {
+      justify-content: center;
+      text-align: center;
+    }
   }
 </style>
