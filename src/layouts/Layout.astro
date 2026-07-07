@@ -1,16 +1,88 @@
+---
+const siteUrl = "https://www.dagn.dev/";
+const siteName = "Dilan Grijalva";
+const title = "Dilan Grijalva | Software Developer in Managua";
+const description =
+  "Dilan Grijalva is a software developer in Managua, Nicaragua focused on mobile apps, backend systems, and reliable product interfaces.";
+const imageUrl = `${siteUrl}images/dilan-grijalva.jpeg`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      url: siteUrl,
+      name: siteName,
+      alternateName: "Dilan Grijalva Portfolio",
+      inLanguage: "en",
+      publisher: {
+        "@id": `${siteUrl}#person`,
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}#person`,
+      name: siteName,
+      url: siteUrl,
+      image: imageUrl,
+      jobTitle: "Software Developer",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Managua",
+        addressCountry: "NI",
+      },
+      knowsAbout: [
+        "TypeScript",
+        "Node.js",
+        "MySQL",
+        "Java",
+        "Kotlin",
+        "React Native",
+        "Backend development",
+        "Mobile app development",
+      ],
+    },
+  ],
+};
+---
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Dilan Grijalva is a software developer in Managua, Nicaragua focused on mobile apps, backend systems, and reliable product interfaces."
-    />
+    <meta name="description" content={description} />
+    <meta name="author" content={siteName} />
+    <meta name="application-name" content={siteName} />
+    <meta name="apple-mobile-web-app-title" content={siteName} />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#FBFAF7" />
-    <link type="image/png" sizes="32x32" rel="icon" href="/favicon.png" />
+    <link rel="canonical" href={siteUrl} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content="Portrait of Dilan Grijalva" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
     <meta name="generator" content={Astro.generator} />
-    <title>Dilan Grijalva | Software Developer</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <title>{title}</title>
   </head>
   <body>
     <slot />

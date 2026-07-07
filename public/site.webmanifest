@@ -1,0 +1,26 @@
+{
+  "name": "Dilan Grijalva",
+  "short_name": "Dilan",
+  "description": "Software developer in Managua, Nicaragua focused on mobile apps, backend systems, and reliable product interfaces.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf7",
+  "theme_color": "#fbfaf7",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

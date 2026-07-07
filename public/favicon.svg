@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title>Dilan Grijalva icon</title>
+  <rect width="512" height="512" rx="96" fill="#111418"/>
+  <path d="M356 0h156v176h-92z" fill="#ff4f00"/>
+  <rect x="72" y="370" width="368" height="34" fill="#ff4f00"/>
+  <text x="256" y="300" fill="#fbfaf7" font-family="Arial, Helvetica, sans-serif" font-size="174" font-weight="700" text-anchor="middle">DG</text>
+  <rect x="3" y="3" width="506" height="506" rx="93" fill="none" stroke="#fbfaf7" stroke-opacity=".12" stroke-width="6"/>
+</svg>
