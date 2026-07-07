@@ -39,51 +39,17 @@ const principles = [
   "Name the tradeoffs instead of hiding them.",
   "Fix the small product details that make software feel rough.",
 ];
-
-const heatmapWeeks = 8;
-const heatmapCellsPerWeek = 7;
-const heatmapSeed = (value) => Math.sin(value * 127.1 + 311.7) * 43758.5453123;
-
-const today = new Date();
-const heatmapStart = new Date(today);
-heatmapStart.setDate(today.getDate() - heatmapWeeks * heatmapCellsPerWeek + 1);
-const heatmapLeadingDays = heatmapStart.getDay();
-
-const heatmapDays = [
-  ...Array.from({ length: heatmapLeadingDays }).map(() => ({ type: "padding" })),
-  ...Array.from({ length: heatmapWeeks * heatmapCellsPerWeek }).map((_, index) => {
-    const date = new Date(heatmapStart);
-    date.setDate(heatmapStart.getDate() + index);
-    const dayOfWeek = date.getDay();
-    const dayValue = date.getTime() / 86_400_000;
-    const noise = Math.abs(heatmapSeed(dayValue) % 1);
-    const weekendScale = dayOfWeek === 0 || dayOfWeek === 6 ? 0.72 : 1;
-    const level = Math.max(
-      0,
-      Math.min(4, Math.floor(noise * 4.6 * weekendScale + Math.sin((index + 3) / 9))),
-    );
-
-    return {
-      type: "day",
-      iso: date.toISOString().slice(0, 10),
-      label: date.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
-      level,
-      delay: index * 65,
-    };
-  }),
-];
 ---
 
 <div class="site-shell">
-  <header class="site-header" aria-label="Primary">
-    <a class="wordmark" href="/">Dilan Grijalva</a>
-    <nav class="site-nav" aria-label="Portfolio sections">
-      <a href="#focus">Focus</a>
-      <a href="#activity">Activity</a>
-      <a href="#principles">Principles</a>
-      <a href={`mailto:${email}`}>Email</a>
-    </nav>
-  </header>
+    <header class="site-header" aria-label="Primary">
+      <a class="wordmark" href="/">Dilan Grijalva</a>
+      <nav class="site-nav" aria-label="Portfolio sections">
+        <a href="#focus">Focus</a>
+        <a href="#principles">Principles</a>
+        <a href={`mailto:${email}`}>Email</a>
+      </nav>
+    </header>
 
   <main>
     <section class="hero" aria-labelledby="profile-title">
@@ -107,25 +73,6 @@ const heatmapDays = [
       <figure class="portrait">
         <img src="/images/dilan-grijalva.jpeg" alt="Dilan Grijalva portrait" />
         <figcaption>Based in Managua. Comfortable around app and API layers.</figcaption>
-        <div class="activity-strip" id="activity" aria-label="Decorative activity timeline">
-          <p class="calendar-heatmap__caption">Activity rhythm</p>
-          <div class="calendar-heatmap" role="img" aria-label="Calendar heatmap of activity">
-            {
-              heatmapDays.map((day) =>
-                day.type === "padding" ? (
-                  <span class="calendar-heatmap__cell calendar-heatmap__cell--padding" aria-hidden="true"></span>
-                ) : (
-                  <span
-                    class={`calendar-heatmap__cell calendar-heatmap__cell--level-${day.level}`}
-                    style={`--cell-delay: ${day.delay}ms`}
-                    title={`${day.label}: level ${day.level}`}
-                    aria-label={`${day.iso}: activity level ${day.level}`}
-                  ></span>
-                ),
-              )
-            }
-          </div>
-        </div>
       </figure>
     </section>
 
@@ -816,94 +763,6 @@ const heatmapDays = [
   @media (prefers-reduced-motion: reduce) {
     .scroll-signal {
       display: none;
-    }
-
-    :global(.supports-scroll-reveal) .scroll-reveal {
-      opacity: 1;
-      transform: none;
-    }
-  }
-</style>
-
-<style>
-  .activity-strip {
-    margin-top: 12px;
-    max-width: 240px;
-  }
-
-  .activity-strip .calendar-heatmap__caption {
-    color: var(--color-muted);
-    font-size: 11px;
-    margin: 0 0 8px;
-    text-transform: uppercase;
-  }
-
-  .calendar-heatmap {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    grid-auto-flow: column;
-    gap: 3px;
-  }
-
-  .calendar-heatmap__cell {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 2px;
-    animation: heat-pulse 5200ms cubic-bezier(0.3, 0, 0.25, 1) infinite;
-    animation-delay: var(--cell-delay);
-    opacity: 0.68;
-    transition: transform 240ms ease;
-  }
-
-  .calendar-heatmap__cell--padding {
-    background: transparent;
-    border-radius: 2px;
-    animation: none;
-  }
-
-  .calendar-heatmap__cell--level-0 {
-    background: #efece4;
-  }
-
-  .calendar-heatmap__cell--level-1 {
-    background: #ded8ca;
-  }
-
-  .calendar-heatmap__cell--level-2 {
-    background: #cabda4;
-  }
-
-  .calendar-heatmap__cell--level-3 {
-    background: #f3b17b;
-  }
-
-  .calendar-heatmap__cell--level-4 {
-    background: #ff8e38;
-  }
-
-  @keyframes heat-pulse {
-    0% {
-      transform: scale(0.985);
-      filter: saturate(0.58);
-    }
-    50% {
-      transform: scale(1.02);
-      filter: saturate(1.01);
-    }
-    100% {
-      transform: scale(0.985);
-      filter: saturate(0.58);
-    }
-  }
-
-  @media (max-width: 700px) {
-    .activity-strip {
-      max-width: 220px;
-    }
-
-    .calendar-heatmap__caption {
-      font-size: 12px;
     }
   }
 </style>
