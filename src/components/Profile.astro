@@ -892,21 +892,21 @@ const heatmapDays = [
   }
 
   .calendar-heatmap {
-    --cell-size: 14px;
+    width: 100%;
     display: grid;
-    grid-template-rows: repeat(7, var(--cell-size));
+    grid-template-columns: repeat(14, minmax(0, 1fr));
+    grid-template-rows: repeat(7, auto);
     grid-auto-flow: column;
-    gap: 6px;
-    width: fit-content;
+    gap: clamp(4px, 0.5vw, 6px);
   }
 
   .calendar-heatmap__cell {
-    width: var(--cell-size);
-    height: var(--cell-size);
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 3px;
-    animation: heat-pulse 2200ms cubic-bezier(0.3, 0, 0.25, 1) infinite;
+    animation: heat-pulse 3800ms cubic-bezier(0.3, 0, 0.25, 1) infinite;
     animation-delay: var(--cell-delay);
-    opacity: 0.84;
+    opacity: 0.78;
     transition: transform 220ms ease;
   }
 
@@ -967,24 +967,19 @@ const heatmapDays = [
   @keyframes heat-pulse {
     0% {
       transform: scale(0.98);
-      filter: saturate(0.68);
+      filter: saturate(0.58);
     }
     45% {
-      transform: scale(1.09);
-      filter: saturate(1.2);
+      transform: scale(1.045);
+      filter: saturate(1.06);
     }
     100% {
       transform: scale(0.98);
-      filter: saturate(0.68);
+      filter: saturate(0.58);
     }
   }
 
   @media (max-width: 700px) {
-    .calendar-heatmap {
-      --cell-size: 12px;
-      gap: 5px;
-    }
-
     .calendar-heatmap__caption {
       font-size: 12px;
     }
