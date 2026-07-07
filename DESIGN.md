@@ -96,6 +96,11 @@ components:
     textColor: "{colors.primary}"
     rounded: "{rounded.md}"
     size: 240px
+  scroll-signal:
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.primary}"
+    rounded: "{rounded.sm}"
+    size: 18px
 ---
 
 # Dilan Grijalva Portfolio Design System
@@ -104,7 +109,7 @@ components:
 
 The portfolio should feel like a quiet editorial profile, not a generated product landing page. The design is for hiring teams who need to understand Dilan's practical strengths quickly: mobile development, backend work, maintainable code, and product-minded execution.
 
-The page should be honest about not having public projects to feature. Replace project-grid pressure with credible proof: current focus, technical stack, working principles, location, availability, and direct email contact.
+The page should be honest about not having public projects to feature. Replace project-grid pressure with credible proof: current focus, technical stack, working principles, location, availability, and direct email contact. Motion is allowed only when it feels like a small crafted detail, such as a tiny scroll signal that reacts to page progress.
 
 ## Colors
 
@@ -141,7 +146,7 @@ Use sharp or lightly softened corners only. Rectangular interactive elements sho
 
 Navigation links are plain text with a subtle accent underline on hover and focus. Primary email actions use an ink fill with warm-paper text, shifting to an orange fill with dark text only on hover.
 
-Sections use border-top rules and compact labels. Stack items and principles should read as editorial rows, not pills or feature cards. The portrait is a restrained identity anchor with a thin border and no decorative treatment.
+Sections use border-top rules and compact labels. Stack items and principles should read as editorial rows, not pills or feature cards. The portrait is a restrained identity anchor with a thin border and no decorative treatment. A small orange scroll signal may sit at the viewport edge and move with page progress; it must be hidden or static for reduced-motion users.
 
 ## Do's and Don'ts
 
@@ -150,4 +155,4 @@ Sections use border-top rules and compact labels. Stack items and principles sho
 - Do make the absence of public projects feel intentional and honest.
 - Don't invent case studies, testimonials, metrics, client logos, or project thumbnails.
 - Don't use bento dashboards, gradient blobs, dark terminal themes, oversized hero cards, or generic AI landing-page composition.
-- Don't add motion beyond subtle entrance, hover, and focus transitions.
+- Don't add motion beyond subtle entrance, hover, focus, and scroll-progress transitions.
