@@ -1,215 +1,562 @@
 ---
+const email = "dilan.grijalva@outlook.com";
 
+const evidence = [
+  {
+    label: "01",
+    title: "Current focus",
+    body: "Mobile app and backend development with a bias toward reliable, testable systems and product interfaces that stay easy to use.",
+  },
+  {
+    label: "02",
+    title: "Working stack",
+    body: "TypeScript, Node.js, MySQL, Java, Kotlin, and React Native. Comfortable moving between app code, APIs, and persistence.",
+  },
+  {
+    label: "03",
+    title: "What replaces projects",
+    body: "No placeholder case studies. This page leads with how I work, where I am focused, and the tools I can bring into a real team.",
+  },
+];
+
+const stack = [
+  "TypeScript",
+  "Node.js",
+  "Kotlin",
+  "Java",
+  "MySQL",
+  "React Native",
+];
+
+const principles = [
+  "Prefer clear, maintainable code over clever abstractions.",
+  "Make software easier to operate, test, and change.",
+  "Keep user experience and performance visible during implementation.",
+];
 ---
 
-<div class="container">
-  <main class="profile-container">
-    <section class="profile-headline-container">
-      <div class="profile-picture-container">
-        <img src="/images/dilan-grijalva.jpeg" alt="Dilan Grijalve selfie" />
-      </div>
-      <div class="profile-bio-container">
-        <p>
-          Hi — I'm Dilan, a Software Developer based in Managua, Nicaragua. I'm
-          passionate about building software that resolves real-world problems
-          and enhances user experiences.
+<div class="site-shell">
+  <header class="site-header" aria-label="Primary">
+    <a class="wordmark" href="/">Dilan Grijalva</a>
+    <nav class="site-nav" aria-label="Portfolio sections">
+      <a href="#focus">Focus</a>
+      <a href="#principles">Principles</a>
+      <a href={`mailto:${email}`}>Email</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="profile-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Software developer · Managua, Nicaragua</p>
+        <h1 id="profile-title">
+          Building practical software across mobile, backend, and product
+          interfaces.
+        </h1>
+        <p class="lede">
+          I focus on pragmatic problem-solving, clean implementation, and
+          reliable systems. Right now I am sharpening my work around mobile app
+          development, backend services, and AI-powered product ideas.
         </p>
-        My current focus is on mobile app and backend development, using technologies
-        such as TypeScript, Node.js, MySQL, Java, Kotlin, and React Native.
-        <p></p>
+        <div class="hero-actions" aria-label="Contact and availability">
+          <a class="email-button" href={`mailto:${email}`}>Contact by email</a>
+          <span class="availability">Open to thoughtful engineering work</span>
+        </div>
+      </div>
+
+      <figure class="portrait">
+        <img src="/images/dilan-grijalva.jpeg" alt="Dilan Grijalva portrait" />
+        <figcaption>Based in Managua. Working across app and API layers.</figcaption>
+      </figure>
+    </section>
+
+    <section class="content-section" id="focus" aria-labelledby="focus-title">
+      <div class="section-heading">
+        <h2 id="focus-title">Focus</h2>
+        <p>
+          A simple snapshot of what I can contribute before there are polished
+          public projects to show.
+        </p>
+      </div>
+
+      <div class="evidence-grid">
+        {
+          evidence.map((item) => (
+            <article class="evidence-item">
+              <p class="item-label">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="stack-block" aria-label="Technology stack">
+        <p class="stack-label">Tools I reach for</p>
+        <ul class="stack-list">
+          {stack.map((item) => <li>{item}</li>)}
+        </ul>
       </div>
     </section>
-    <section class="employment-container">
-      <p>
-        I have interest in building AI-powered applications and exploring new
-        technologies to stay at the forefront of the industry.
-      </p>
-    </section>
-    <section class="projects-container">
-      <h2>Latest projects</h2>
-      <p>Working on some personal projects. Check back later for updates!</p>
+
+    <section
+      class="content-section principles-section"
+      id="principles"
+      aria-labelledby="principles-title"
+    >
+      <div class="section-heading">
+        <h2 id="principles-title">Principles</h2>
+        <p>
+          I care about the less flashy parts of software: code that holds up,
+          systems that can be reasoned about, and interfaces that respect the
+          person using them.
+        </p>
+      </div>
+
+      <div class="principles-layout">
+        <ol class="principles-list">
+          {principles.map((item) => <li>{item}</li>)}
+        </ol>
+
+        <aside class="contact-panel" aria-label="Contact">
+          <p class="item-label">Available for</p>
+          <p>
+            React, Node.js, TypeScript, Kotlin, and backend-heavy product work.
+          </p>
+          <a href={`mailto:${email}`}>{email}</a>
+        </aside>
+      </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <span>Dilan Grijalva</span>
+    <a href={`mailto:${email}`}>{email}</a>
+  </footer>
 </div>
 
 <style>
-  :root {
-    --primary-color: #ff4f00;
-    --background-color: #000000;
-    --foreground-color: #fffdf9;
-    --surface-color: #0a0a0a;
-    --border-color: #1f1f1f;
-
-    background-color: var(--background-color);
-    color: var(--foreground-color);
-    font-family: "JetBrains Mono", monospace;
-    font-optical-sizing: auto;
-    box-sizing: border-box;
+  .site-shell {
+    width: min(1120px, calc(100% - clamp(32px, 8vw, 96px)));
+    margin: 0 auto;
+    padding: 0 0 40px;
   }
 
-  ::selection {
-    background: var(--primary-color);
-    color: var(--foreground-color);
-  }
-
-  body::before,
-  :global(body)::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background: repeating-linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.06) 0px,
-        rgba(255, 255, 255, 0.06) 1px,
-        transparent 1px,
-        transparent 40px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.06) 0px,
-        rgba(255, 255, 255, 0.06) 1px,
-        transparent 1px,
-        transparent 40px
-      );
-    background-blend-mode: screen;
-  }
-
-  .container {
+  .site-header {
     display: flex;
-    justify-content: center;
-    font-size: medium;
-    line-height: 1.5;
-    padding: 1em;
-  }
-
-  .profile-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--surface-color);
-    border: solid 1px var(--border-color);
-    border-radius: 8px;
-    max-width: 600px;
-    padding: 1em;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .profile-headline-container {
-    display: flex;
-    gap: 24px;
-  }
-
-  .profile-bio-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .profile-bio-container p {
-    margin: 0px;
-  }
-
-  .profile-picture-container {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 72px;
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .profile-picture-container img {
-    border-radius: 12px;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    transition:
-      width 0.2s,
-      height 0.2s,
-      box-shadow 0.3s,
-      filter 0.3s,
-      transform 0.3s;
-
-    border: 2px dashed var(--border-color);
-    transform: rotate(0deg) scale(1.01);
+  .wordmark,
+  .site-nav a,
+  .site-footer,
+  .eyebrow,
+  .item-label,
+  .stack-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0;
   }
 
-  .profile-picture-container img:hover {
-    transform: rotate(0deg) scale(1.04);
-    cursor: pointer;
-    border-color: var(--primary-color);
+  .wordmark {
+    font-weight: 700;
+    text-decoration: none;
   }
 
-  .employment-container {
+  .site-nav {
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    gap: clamp(18px, 4vw, 36px);
   }
 
-  .projects-container {
-    margin-top: 2em;
-    background: var(--surface-color);
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    padding: 1em;
+  .site-nav a {
+    color: var(--color-muted);
+    font-weight: 600;
+    padding: 10px 0;
+    position: relative;
+    text-decoration: none;
+    transition: color 180ms ease;
   }
 
-  .projects-container h2 {
-    margin-top: 0;
-    color: var(--primary-color);
-    font-size: 1.2em;
+  .site-nav a::after {
+    background: var(--color-accent);
+    bottom: 5px;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
   }
 
-  .projects-container ul {
-    padding-left: 1.2em;
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    color: var(--color-text);
+  }
+
+  .site-nav a:hover::after,
+  .site-nav a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .hero {
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    display: grid;
+    gap: clamp(36px, 8vw, 96px);
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+    padding: clamp(56px, 10vw, 128px) 0 clamp(48px, 8vw, 88px);
+  }
+
+  .hero-copy,
+  .portrait,
+  .content-section,
+  .site-footer {
+    animation: rise-in 520ms ease both;
+  }
+
+  .portrait {
+    animation-delay: 80ms;
+  }
+
+  .content-section {
+    animation-delay: 120ms;
+  }
+
+  .eyebrow,
+  .item-label,
+  .stack-label {
+    color: var(--color-muted);
+    font-weight: 700;
     margin: 0;
   }
 
-  .projects-container li {
-    margin-bottom: 0.7em;
+  h1,
+  h2,
+  h3,
+  p {
+    margin-top: 0;
   }
 
-  .project-title {
-    transition: border-bottom 0.2s;
+  h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1.02;
+    margin-bottom: 28px;
+    max-width: 820px;
   }
 
-  .project-title:hover {
-    border-bottom: 2px dashed var(--primary-color);
-    cursor: pointer;
+  .lede {
+    color: var(--color-muted);
+    font-size: clamp(18px, 2vw, 21px);
+    line-height: 1.55;
+    margin-bottom: 32px;
+    max-width: 670px;
   }
 
-  /* Responsive styles */
-  @media (max-width: 600px) {
-    .container {
-      padding: 0 0.5em;
+  .hero-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 20px;
+  }
+
+  .email-button {
+    align-items: center;
+    background: var(--color-text);
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    color: var(--color-background);
+    display: inline-flex;
+    font-weight: 650;
+    min-height: 46px;
+    padding: 0 18px;
+    text-decoration: none;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .email-button:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text);
+    transform: translateY(-1px);
+  }
+
+  .availability {
+    align-items: center;
+    color: var(--color-muted);
+    display: inline-flex;
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .availability::before {
+    background: var(--color-accent);
+    border-radius: 9999px;
+    content: "";
+    height: 7px;
+    width: 7px;
+  }
+
+  .portrait {
+    justify-self: end;
+    margin: 0;
+  }
+
+  .portrait img {
+    aspect-ratio: 1;
+    background: var(--color-accent-soft);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    filter: saturate(0.92) contrast(1.02);
+    object-fit: cover;
+    width: clamp(168px, 22vw, 240px);
+  }
+
+  .portrait figcaption {
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 1.45;
+    margin-top: 14px;
+    max-width: 240px;
+  }
+
+  .content-section {
+    border-bottom: 1px solid var(--color-border);
+    padding: clamp(48px, 8vw, 88px) 0;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  h2 {
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.2;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+
+  .section-heading p {
+    font-size: clamp(24px, 3.4vw, 38px);
+    font-weight: 560;
+    line-height: 1.18;
+    margin-bottom: 0;
+    max-width: 850px;
+  }
+
+  .evidence-grid {
+    display: grid;
+    gap: clamp(24px, 4vw, 48px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 46px;
+  }
+
+  .evidence-item {
+    border-top: 1px solid var(--color-border);
+    padding-top: 18px;
+  }
+
+  .evidence-item h3 {
+    font-size: 18px;
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1.3;
+    margin: 18px 0 10px;
+  }
+
+  .evidence-item p:last-child,
+  .contact-panel p {
+    color: var(--color-muted);
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  .stack-block {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 160px minmax(0, 1fr);
+    margin-top: 52px;
+  }
+
+  .stack-list {
+    border-top: 1px solid var(--color-border);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .stack-list li {
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 15px;
+    padding: 13px 0;
+  }
+
+  .principles-layout {
+    display: grid;
+    gap: clamp(36px, 7vw, 88px);
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 330px);
+    margin-top: 46px;
+  }
+
+  .principles-list {
+    counter-reset: principle;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .principles-list li {
+    border-top: 1px solid var(--color-border);
+    counter-increment: principle;
+    display: grid;
+    font-size: clamp(19px, 2.3vw, 25px);
+    gap: 22px;
+    grid-template-columns: 38px minmax(0, 1fr);
+    line-height: 1.35;
+    padding: 22px 0;
+  }
+
+  .principles-list li:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .principles-list li::before {
+    color: var(--color-muted);
+    content: counter(principle, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.8;
+  }
+
+  .contact-panel {
+    border-bottom: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    padding: 18px 0 20px;
+  }
+
+  .contact-panel a {
+    display: inline-block;
+    font-weight: 650;
+    margin-top: 18px;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    transition: color 180ms ease;
+  }
+
+  .contact-panel a:hover {
+    text-decoration-color: var(--color-text);
+  }
+
+  .site-footer {
+    align-items: center;
+    color: var(--color-muted);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 28px;
+  }
+
+  .site-footer a {
+    text-decoration: none;
+  }
+
+  .site-footer a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 5px;
+  }
+
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
     }
-    .profile-container {
-      margin-top: 2em;
-      padding: 0.5em;
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-    .profile-headline-container {
+  }
+
+  @media (max-width: 780px) {
+    .site-shell {
+      width: min(100% - 32px, 1120px);
+    }
+
+    .site-header {
+      align-items: flex-start;
       flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      text-align: center;
-    }
-    .profile-bio-container {
-      align-items: center;
-      text-align: center;
-    }
-    .profile-picture-container img {
-      width: 240px;
-      height: 240px;
-    }
-    .employment-container {
+      gap: 6px;
       justify-content: center;
-      text-align: center;
+      padding: 16px 0;
     }
-    .projects-container {
-      padding: 0.5em;
+
+    .site-nav {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .hero {
+      gap: 34px;
+      grid-template-columns: 1fr;
+      padding: 48px 0 52px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 12vw, 56px);
+      margin-bottom: 22px;
+    }
+
+    .portrait {
+      justify-self: start;
+    }
+
+    .section-heading,
+    .stack-block,
+    .principles-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .evidence-grid,
+    .stack-list {
+      grid-template-columns: 1fr;
+    }
+
+    .evidence-grid,
+    .principles-layout {
+      margin-top: 34px;
+    }
+
+    .stack-block {
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    .site-footer {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
     }
   }
 </style>
