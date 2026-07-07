@@ -203,30 +203,6 @@ const heatmapDays = [
 
 <script>
   const root = document.documentElement;
-  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const revealItems = Array.from(document.querySelectorAll(".scroll-reveal"));
-
-  if (!motionQuery.matches && revealItems.length > 0) {
-    root.classList.add("supports-scroll-reveal");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.2 },
-    );
-
-    revealItems.forEach((item, index) => {
-      item.style.setProperty("--reveal-delay", `${Math.min(index, 7) * 45}ms`);
-      observer.observe(item);
-    });
-  }
-
   let scrollFrame = 0;
 
   const updateScrollSignal = () => {
@@ -671,20 +647,6 @@ const heatmapDays = [
     height: 4px;
     top: 4px;
     width: 8px;
-  }
-
-  :global(.supports-scroll-reveal) .scroll-reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    transition:
-      opacity 420ms ease,
-      transform 420ms ease;
-    transition-delay: var(--reveal-delay, 0ms);
-  }
-
-  :global(.supports-scroll-reveal) .scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .site-footer a:hover {
