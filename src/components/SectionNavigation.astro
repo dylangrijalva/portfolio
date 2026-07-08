@@ -1,0 +1,163 @@
+---
+const navItems = [
+  { href: "#intro", id: "intro", label: "Introduction" },
+  { href: "#focus", id: "focus", label: "Focus" },
+  { href: "#principles", id: "principles", label: "Principles" },
+  { href: "#contact", id: "contact", label: "Contact" },
+];
+---
+
+<nav class="section-nav" aria-label="Page sections" data-section-nav>
+  <div class="section-nav__rail" aria-hidden="true"></div>
+  <ul>
+    {
+      navItems.map((item, index) => (
+        <li>
+          <a
+            href={item.href}
+            data-section-link={item.id}
+            aria-current={index === 0 ? "true" : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const sectionNav = document.querySelector("[data-section-nav]");
+
+  if (sectionNav) {
+    const links = Array.from(
+      sectionNav.querySelectorAll("[data-section-link]"),
+    );
+    const sections = links
+      .map((link) => {
+        const id = link.getAttribute("data-section-link");
+        return id ? document.getElementById(id) : null;
+      })
+      .filter(Boolean);
+    let activeFrame = 0;
+
+    const setActiveSection = (id: string) => {
+      links.forEach((link) => {
+        const isActive = link.getAttribute("data-section-link") === id;
+
+        if (isActive) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    };
+
+    const updateActiveSection = () => {
+      const marker = window.scrollY + window.innerHeight * 0.38;
+      const isAtPageEnd =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 8;
+      const activeSection =
+        (isAtPageEnd ? sections.at(-1) : null) ??
+        sections.findLast((section) => section.offsetTop <= marker) ??
+        sections[0];
+
+      if (activeSection) {
+        setActiveSection(activeSection.id);
+      }
+
+      activeFrame = 0;
+    };
+
+    const requestActiveSection = () => {
+      if (activeFrame === 0) {
+        activeFrame = window.requestAnimationFrame(updateActiveSection);
+      }
+    };
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        const id = link.getAttribute("data-section-link");
+
+        if (id) {
+          setActiveSection(id);
+        }
+      });
+    });
+
+    updateActiveSection();
+    window.addEventListener("scroll", requestActiveSection, { passive: true });
+    window.addEventListener("resize", requestActiveSection);
+  }
+</script>
+
+<style>
+  .section-nav {
+    display: none;
+  }
+
+  @media (min-width: 1120px) {
+    .section-nav {
+      color: var(--color-muted);
+      display: block;
+      font-size: 14px;
+      left: clamp(24px, 3vw, 44px);
+      line-height: 1.25;
+      padding-left: 20px;
+      position: fixed;
+      top: clamp(98px, 18vh, 150px);
+      width: 128px;
+      z-index: 10;
+    }
+
+    .section-nav__rail {
+      background: var(--color-border);
+      bottom: 3px;
+      left: 0;
+      position: absolute;
+      top: 3px;
+      width: 1px;
+    }
+
+    .section-nav ul {
+      display: grid;
+      gap: 1px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-nav a {
+      color: inherit;
+      display: block;
+      padding: 7px 0;
+      position: relative;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .section-nav a::before {
+      background: var(--color-text);
+      content: "";
+      height: 22px;
+      left: -21px;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 180ms ease;
+      width: 2px;
+    }
+
+    .section-nav a:hover,
+    .section-nav a:focus-visible,
+    .section-nav a[aria-current="true"] {
+      color: var(--color-text);
+    }
+
+    .section-nav a[aria-current="true"]::before {
+      opacity: 1;
+    }
+  }
+</style>
