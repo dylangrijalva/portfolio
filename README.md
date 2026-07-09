@@ -9,3 +9,7 @@ My skills and technologies include full‑stack development with JavaScript, Typ
 - Reach me out via [Email](mailto:dilan.grijalva@outlook.com)
 - Check my portfolio at [dagn.dev](https://dagn.dev)
 - Open to collaborating with React, Node.js, TypeScript, Kotlin, and more.
+
+## Blog content
+
+Future blog posts should live at `src/content/blog/<slug>/index.md`. Keep post-specific images beside the post, for example `src/content/blog/my-post/cover.jpg`, and reference them in frontmatter with `cover: ./cover.jpg`. Use `public/images/blog/...` only when an image needs a stable direct URL and should not be processed by Astro.

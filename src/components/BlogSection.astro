@@ -1,0 +1,115 @@
+<section class="content-section blog-section" id="blog" aria-labelledby="blog-title">
+  <div class="section-heading">
+    <h2 id="blog-title">Blog</h2>
+    <p>
+      Notes will live here once they are useful enough to deserve their own URL.
+    </p>
+  </div>
+
+  <div class="empty-state" aria-label="Blog status">
+    <p class="item-label">Archive status</p>
+    <div class="empty-state-copy">
+      <h3>No posts yet.</h3>
+      <p>
+        The blog is currently a strongly typed void. I have opinions, but they
+        are still being linted.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    border-bottom: 1px solid var(--color-border);
+    padding: clamp(48px, 8vw, 88px) 0;
+    animation: rise-in 520ms ease both;
+    animation-delay: 120ms;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  h2,
+  h3,
+  p {
+    margin-top: 0;
+  }
+
+  h2 {
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.2;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+
+  .section-heading p {
+    font-size: clamp(24px, 3.4vw, 38px);
+    font-weight: 560;
+    line-height: 1.18;
+    margin-bottom: 0;
+    max-width: 850px;
+  }
+
+  .item-label {
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  .empty-state {
+    border-bottom: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 160px minmax(0, 1fr);
+    margin-top: 46px;
+    padding: 22px 0 24px;
+  }
+
+  .empty-state-copy {
+    max-width: 640px;
+  }
+
+  .empty-state h3 {
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1.18;
+    margin-bottom: 12px;
+  }
+
+  .empty-state p:last-child {
+    color: var(--color-muted);
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 780px) {
+    .section-heading,
+    .empty-state {
+      grid-template-columns: 1fr;
+    }
+
+    .empty-state {
+      gap: 14px;
+      margin-top: 34px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .section-heading p {
+      font-size: clamp(22px, 7.5vw, 30px);
+    }
+  }
+</style>

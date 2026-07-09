@@ -3,6 +3,7 @@ const navItems = [
   { href: "#intro", id: "intro", label: "Introduction" },
   { href: "#focus", id: "focus", label: "Focus" },
   { href: "#principles", id: "principles", label: "Principles" },
+  { href: "#blog", id: "blog", label: "Blog" },
   { href: "#contact", id: "contact", label: "Contact" },
 ];
 ---
@@ -55,11 +56,18 @@ const navItems = [
 
     const updateActiveSection = () => {
       const marker = window.scrollY + window.innerHeight * 0.38;
-      const isAtPageEnd =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 8;
+      const hashId = window.location.hash.slice(1);
+      const visibleHashSection = sections.find((section) => {
+        if (section.id !== hashId) {
+          return false;
+        }
+
+        const rect = section.getBoundingClientRect();
+
+        return rect.bottom > 0 && rect.top < window.innerHeight;
+      });
       const activeSection =
-        (isAtPageEnd ? sections.at(-1) : null) ??
+        visibleHashSection ??
         sections.findLast((section) => section.offsetTop <= marker) ??
         sections[0];
 
@@ -87,8 +95,11 @@ const navItems = [
     });
 
     updateActiveSection();
+    window.requestAnimationFrame(updateActiveSection);
     window.addEventListener("scroll", requestActiveSection, { passive: true });
     window.addEventListener("resize", requestActiveSection);
+    window.addEventListener("hashchange", requestActiveSection);
+    window.addEventListener("load", requestActiveSection);
   }
 </script>
 
