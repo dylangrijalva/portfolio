@@ -1,0 +1,13 @@
+# Dilan Grijalva
+
+> Personal portfolio of Dilan Grijalva, a software developer in Managua focused on mobile apps, backend services, and reliable product experiences.
+
+This is a concise, single-page portfolio. Dilan works with TypeScript, Node.js, .NET, Kotlin, React, React Native, Go, MySQL, Java, PostgreSQL, AWS, and Azure.
+
+## Primary page
+
+- [Portfolio](https://www.dagn.dev/): Profile, current focus, working stack, engineering principles, and contact information.
+
+## Contact
+
+- Email: dilan.grijalva@outlook.com

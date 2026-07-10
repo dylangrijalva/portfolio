@@ -1,0 +1,10 @@
+/* TEAM */
+Developer: Dilan Grijalva
+Contact: dilan.grijalva@outlook.com
+Location: Managua, Nicaragua
+
+/* SITE */
+Language: English
+Standards: HTML5, CSS
+Technology: Astro, TypeScript
+Last update: 2026-07-10

@@ -1,0 +1,10 @@
+# AI crawler policy for dagn.dev
+
+User-agent: *
+Allow: /
+
+The public content on this website may be crawled, indexed, quoted, and
+summarized by search engines and AI systems with attribution to Dilan Grijalva.
+
+Canonical: https://www.dagn.dev/
+Contact: mailto:dilan.grijalva@outlook.com

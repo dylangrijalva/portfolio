@@ -1,0 +1,4 @@
+Contact: mailto:dilan.grijalva@outlook.com
+Expires: 2027-07-01T00:00:00Z
+Preferred-Languages: en, es
+Canonical: https://www.dagn.dev/.well-known/security.txt
