@@ -10,7 +10,7 @@ const navLinks = [
 ---
 
 <header class="site-header" aria-label="Primary">
-  <a class="wordmark" href="/"><span aria-hidden="true">DG</span> Dilan Grijalva</a>
+  <a class="wordmark" href="/">Dilan Grijalva</a>
   <nav class="site-nav" aria-label="Portfolio sections">
     {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
   </nav>
@@ -22,52 +22,32 @@ const navLinks = [
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    min-height: 76px;
+    min-height: 72px;
     border-bottom: 1px solid var(--color-border);
-    position: relative;
-    z-index: 2;
   }
 
   .wordmark,
   .site-nav a {
-    font-size: 13px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0;
   }
 
   .wordmark {
-    align-items: center;
-    display: inline-flex;
-    font-size: 13px;
     font-weight: 700;
-    gap: 11px;
-    letter-spacing: 0.14em;
     text-decoration: none;
-    text-transform: uppercase;
     white-space: nowrap;
-  }
-
-  .wordmark span {
-    align-items: center;
-    background: var(--color-accent);
-    border-radius: 50%;
-    color: var(--color-ink);
-    display: inline-flex;
-    font-family: var(--font-mono);
-    font-size: 8px;
-    height: 25px;
-    justify-content: center;
-    letter-spacing: -0.08em;
-    width: 25px;
   }
 
   .site-nav {
     display: flex;
     align-items: center;
-    gap: clamp(18px, 3vw, 34px);
+    gap: clamp(18px, 4vw, 36px);
   }
 
   .site-nav a {
     color: var(--color-muted);
-    font-weight: 400;
+    font-weight: 600;
     padding: 10px 0;
     position: relative;
     transition: color 180ms ease;
@@ -98,11 +78,16 @@ const navLinks = [
 
   @media (max-width: 780px) {
     .site-header {
-      min-height: 68px;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 6px;
+      justify-content: center;
+      padding: 16px 0;
     }
 
     .site-nav {
-      gap: 18px;
+      justify-content: space-between;
+      width: 100%;
     }
   }
 
@@ -112,12 +97,8 @@ const navLinks = [
     }
 
     .site-nav {
-      gap: 16px;
-    }
-
-    .site-nav a:nth-child(2),
-    .site-nav a:nth-child(3) {
-      display: none;
+      flex-wrap: wrap;
+      gap: 8px 18px;
     }
   }
 </style>
