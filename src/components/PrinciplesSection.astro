@@ -8,7 +8,7 @@ import { principles, email } from "../data/profile";
   aria-labelledby="principles-title"
 >
   <div class="section-heading">
-    <h2 id="principles-title">Principles</h2>
+    <h2 id="principles-title">// how_i_work</h2>
     <p>
       The habits I care about are not complicated. They mostly come down to
       clarity, honest tradeoffs, and noticing where the product feels off.
@@ -34,8 +34,7 @@ import { principles, email } from "../data/profile";
 
 <style>
   .content-section {
-    border-bottom: 1px solid var(--color-border);
-    padding: clamp(48px, 8vw, 88px) 0;
+    padding: clamp(72px, 10vw, 118px) 0;
     animation: rise-in 520ms ease both;
     animation-delay: 120ms;
   }
@@ -52,7 +51,7 @@ import { principles, email } from "../data/profile";
   }
 
   h2 {
-    color: var(--color-text);
+    color: var(--color-accent);
     font-family: var(--font-mono);
     font-size: 12px;
     font-weight: 700;
@@ -63,9 +62,10 @@ import { principles, email } from "../data/profile";
   }
 
   .section-heading p {
-    font-size: clamp(24px, 3.4vw, 38px);
-    font-weight: 560;
-    line-height: 1.18;
+    font-size: clamp(34px, 4.4vw, 54px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
     margin-bottom: 0;
     max-width: 850px;
   }
@@ -118,9 +118,10 @@ import { principles, email } from "../data/profile";
   }
 
   .contact-panel {
-    border-bottom: 1px solid var(--color-border);
-    border-top: 1px solid var(--color-border);
-    padding: 18px 0 20px;
+    background: var(--color-accent-soft);
+    border: 1px solid rgba(201, 168, 124, 0.22);
+    border-radius: 10px;
+    padding: 24px;
   }
 
   .contact-panel p {

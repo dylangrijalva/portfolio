@@ -1,20 +1,20 @@
 ---
 version: alpha
 name: Dilan Grijalva Portfolio
-description: Editorial minimal design system for a personal software developer portfolio without project case studies.
+description: Dark editorial software portfolio with warm metallic accents, terminal-inspired details, and alternating paper sections.
 colors:
-  primary: "#111418"
-  secondary: "#6F6F68"
-  tertiary: "#FF4F00"
-  neutral: "#FBFAF7"
-  background: "#FBFAF7"
-  surface: "#FFFFFF"
-  text: "#111418"
-  muted: "#6F6F68"
-  border: "#D9D7D0"
-  accent: "#FF4F00"
-  accent-soft: "#FFF0E8"
-  on-accent: "#111418"
+  primary: "#F5F0EB"
+  secondary: "#A7A29C"
+  tertiary: "#C9A87C"
+  neutral: "#F2EEE8"
+  background: "#171716"
+  surface: "#1D1D1B"
+  text: "#F5F0EB"
+  muted: "#A7A29C"
+  border: "#343431"
+  accent: "#C9A87C"
+  accent-soft: "#29241E"
+  on-accent: "#1A1A19"
 typography:
   headline-display:
     fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'

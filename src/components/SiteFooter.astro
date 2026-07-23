@@ -3,8 +3,8 @@ import { email } from "../data/profile";
 ---
 
 <footer class="site-footer" id="contact">
-  <span>Dilan Grijalva</span>
-  <a href={`mailto:${email}`}>{email}</a>
+  <span>&lt;DG /&gt; · Managua, Nicaragua</span>
+  <a href={`mailto:${email}`}>Let’s work together →</a>
 </footer>
 
 <style>
@@ -16,12 +16,14 @@ import { email } from "../data/profile";
     color: var(--color-muted);
     display: flex;
     justify-content: space-between;
-    padding-top: 28px;
+    min-height: 112px;
+    padding: 28px 0;
     animation: rise-in 520ms ease both;
     animation-delay: 120ms;
   }
 
   .site-footer a {
+    color: var(--color-accent);
     overflow-wrap: anywhere;
     text-decoration: none;
   }
